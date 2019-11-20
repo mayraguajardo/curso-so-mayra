@@ -62,10 +62,10 @@ int main(int argc, char **argv){
         Student myStudent;
         int lastNameMaxSize = sizeof(myStudent.lastName);
         char trunLastName [lastNameMaxSize];
-        strncpy(trunLastName, newLastName, 20);
+        strncpy(trunLastName, newLastName, lastNameMaxSize);
         int fd = open(filename,O_WRONLY);
         lseek(fd, posElement*sizeof(Student) + sizeof(myStudent.firstName), SEEK_SET);
-        write(fd,trunLastName,strlen(trunLastName));
+        write(fd,trunLastName,lastNameMaxSize);
         close(fd);
     }
 }
